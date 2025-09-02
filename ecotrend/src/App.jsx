@@ -11,10 +11,10 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Modal produto
+  
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Checkout
+  
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutData, setCheckoutData] = useState({
     name: "",
@@ -24,10 +24,9 @@ export default function App() {
   });
   const [finalTotal, setFinalTotal] = useState(0);
 
-  // Carrega JSON de produtos
+
   useEffect(() => {
-    // Substitua a URL abaixo pela URL do seu arquivo JSON no GitHub Pages
-    // Exemplo: 'https://seunome.github.io/seu-repositorio/products.json'
+    
     fetch("https://raw.githubusercontent.com/EnzoFerreira-lab/produtos/refs/heads/main/produtos.json")
       .then((res) => res.json())
       .then((data) => {
@@ -37,12 +36,12 @@ export default function App() {
       .catch(() => setLoading(false));
   }, []);
 
-  // Salva carrinho no localStorage
+  
   useEffect(() => {
     localStorage.setItem("eco_cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Adiciona produto ao carrinho
+  
   const addToCart = (product) => {
     setCart((prev) => {
       const found = prev.find((p) => p.id === product.id);
@@ -62,21 +61,21 @@ export default function App() {
 
   const total = cart.reduce((sum, p) => sum + p.price * p.qty, 0);
 
-  // Aplica filtros
+  
   const filtered = products.filter(
     (p) =>
       (filters.category === "all" || p.category === filters.category) &&
       p.price <= filters.price
   );
 
-  // Checkout simulado
+  
   const checkout = async (e) => {
     e.preventDefault();
 
-    // Adiciona uma verificação para o carrinho vazio
+    
     if (cart.length === 0) {
       setMessage("O carrinho está vazio. Adicione produtos para continuar.");
-      return; // Interrompe a função aqui
+      return; 
     }
 
     if (!checkoutData.name || !checkoutData.address) {
@@ -105,7 +104,7 @@ export default function App() {
         <button onClick={() => setSidebarOpen(true)}>🛒 Carrinho ({cart.length})</button>
       </header>
 
-      {/* Filtros */}
+      
       <section id="filters">
         <label>
           Categoria:
@@ -139,7 +138,7 @@ export default function App() {
         </label>
       </section>
 
-      {/* Lista de produtos */}
+      
       <main className="products">
         {loading ? (
           <div className="spinner">
@@ -175,7 +174,7 @@ export default function App() {
         )}
       </main>
 
-      {/* Modal do produto */}
+      
       {selectedProduct && (
         <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -209,7 +208,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Sidebar do carrinho */}
+     
       <aside className={`cartSidebar ${sidebarOpen ? "show" : ""}`}>
         <button onClick={() => setSidebarOpen(false)}>X</button>
         <h2>Seu Carrinho</h2>
@@ -219,7 +218,7 @@ export default function App() {
           <p>Total: R$ {total.toFixed(2)}</p>
         )}
         <ul>
-          {/* Se o carrinho estiver vazio, esta lista ficará vazia */}
+          
           {cart.map((item) => (
             <li key={item.id} className="cart-item">
               <img src={item.image} alt={item.name} className="cart-thumb" />
@@ -232,7 +231,7 @@ export default function App() {
           ))}
         </ul>
 
-        {/* O formulário agora é sempre visível */}
+        
         <form className="checkout-form" onSubmit={checkout}>
             <input
               type="text"
@@ -263,7 +262,7 @@ export default function App() {
               <option value="boleto">Boleto</option>
             </select>
             
-            {/* Lógica de parcelamento */}
+            
             {checkoutData.payment === "cartao" && total > 200 && (
               <select
                 value={checkoutData.installments}
