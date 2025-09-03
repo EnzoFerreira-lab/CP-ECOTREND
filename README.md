@@ -26,16 +26,27 @@ implementação do fluxo de compra no src/App.jsx (fetch de produtos, filtros, c
 📂 Estrutura do projeto (resumida)
 ecotrend/
 ├─ .gitignore
+
 ├─ README.md
+
 ├─ index.html
+
 ├─ package.json
+
 ├─ vite.config.js
+
 ├─ public/
+
 │  └─ vite.svg
+
 └─ src/
+
    ├─ main.jsx
+   
    ├─ App.jsx
+   
    ├─ App.css
+   
    └─ assets/
       ├─ react.svg
       └─ (imagens do produto)
@@ -239,8 +250,8 @@ Contato
 
 Se quiser trocar ideias, abrir issues ou enviar PRs, use a seção de Issues do repositório GitHub.
 
-"Projeto executando e desenvolvido por:
+Projeto executando e desenvolvido por:
 Guilherme de Paula
 Enzo Ferreira
 Guilherme Eduardo
-Matheus Gomes"
+Matheus Gomes
