@@ -251,7 +251,7 @@ Contato
 Se quiser trocar ideias, abrir issues ou enviar PRs, use a seção de Issues do repositório GitHub.
 
 Projeto executando e desenvolvido por:
-Guilherme de Paula
-Enzo Ferreira
-Guilherme Eduardo
-Matheus Gomes
+Guilherme de Paula: 562471
+Enzo Ferreira: 562448
+Guilherme Eduardo: 566045
+Matheus Gomes: 562277
